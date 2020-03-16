@@ -50,3 +50,7 @@
     color: var(--primaryColor);
     margin-right: 20px;
 }
+
+.abc {
+    background: #FFF;
+}

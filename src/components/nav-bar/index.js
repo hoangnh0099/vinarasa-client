@@ -3,11 +3,18 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import NotFound from '../../pages/not-found';
 import { menuData } from './config';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from 'reactstrap';
+import firebase from '../../services/firebaseConfig';
 
 const resource = {
   logo: require('../../assets/images/logo/logo.png'),
@@ -17,7 +24,19 @@ const resource = {
 };
 
 const NavBar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(!dropdownOpen);
+
   const onSearch = () => {};
+
+  const onSignOut = async () => {
+    try {
+      return await firebase.auth().signOut();
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
 
   return (
     <BrowserRouter>
@@ -28,6 +47,7 @@ const NavBar = () => {
           {menuData.map(menuItem => {
             return (
               <NavLink
+                key={menuItem.id}
                 to={menuItem.path}
                 className="nav-item"
                 exact
@@ -56,9 +76,18 @@ const NavBar = () => {
 
           <h5 className="price">$65.00</h5>
 
-          <button>
-            <img src={resource.user} className="icon" />
-          </button>
+          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <DropdownToggle color="#FFF" className="dropdown">
+              <img src={resource.user} className="icon" />
+            </DropdownToggle>
+
+            <DropdownMenu right>
+              <DropdownItem header>Header</DropdownItem>
+              <DropdownItem>Some Action</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={onSignOut}>Đăng xuất</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
       </div>
 
