@@ -1,5 +1,6 @@
 :root {
     --primaryColor: #78a206;
+    --border: 1px solid black;
 }
 
 .nav-bar {
@@ -47,8 +48,15 @@
 
 .price {
     color: var(--primaryColor);
+    margin-top: 10px;
 }
 
 .btn {
-    outline: none;
+    outline: none !important;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
