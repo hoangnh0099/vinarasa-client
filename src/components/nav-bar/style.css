@@ -1,0 +1,52 @@
+:root {
+    --primaryColor: #78a206;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    justify-content: space-between;
+}
+
+.brand-logo {
+}
+
+.nav-item {
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.active {
+    color: var(--primaryColor);
+}
+
+.form-input {
+    outline: none;
+    font-size: 13px;
+    width: 150px;
+}
+
+.icon {
+    width: 20px;
+    margin-right: 20px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    color: var(--primaryColor);
+    margin-right: 20px;
+}

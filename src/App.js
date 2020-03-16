@@ -5,11 +5,12 @@
 
 import React from 'react';
 import './App.css';
+import NavBar from './components/nav-bar';
 
 const App = () => {
   return (
-    <div className='App'>
-      <p>Hello</p>
+    <div className="App">
+      <NavBar />
     </div>
   );
 };
