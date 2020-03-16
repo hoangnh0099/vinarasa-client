@@ -70,14 +70,14 @@ const NavBar = () => {
             </button>
           </form>
 
-          <button>
+          <button className="btn">
             <img src={resource.cart} className="icon" />
           </button>
 
           <h5 className="price">$65.00</h5>
 
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle color="#FFF" className="dropdown">
+            <DropdownToggle tag="div" color="#FFF" className="dropdown">
               <img src={resource.user} className="icon" />
             </DropdownToggle>
 
