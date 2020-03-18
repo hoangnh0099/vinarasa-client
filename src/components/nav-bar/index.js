@@ -43,7 +43,12 @@ const NavBar = () => {
     <BrowserRouter>
       <div className="nav-bar">
         <Link to="/">
-          <img src={resource.logo} loading="lazy" alt="" className="brand-logo" />
+          <img
+            src={resource.logo}
+            loading="lazy"
+            alt=""
+            className="brand-logo"
+          />
         </Link>
 
         <nav>
@@ -69,7 +74,12 @@ const NavBar = () => {
               className="form-input"
             />
             <button onClick={onSearch} className="btn">
-              <img loading="lazy" src={resource.search} className="icon" alt="" />
+              <img
+                loading="lazy"
+                src={resource.search}
+                className="icon"
+                alt=""
+              />
             </button>
           </form>
 
@@ -97,6 +107,7 @@ const NavBar = () => {
 
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/products/:id" exact component={() => <h1>Hello</h1>} />
         <Route exact component={NotFound} />
       </Switch>
     </BrowserRouter>
