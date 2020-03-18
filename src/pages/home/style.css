@@ -56,6 +56,10 @@
     color: #FFF;
 }
 
-.owlCarousel:hover > .navClassLeft {
+.owlCarousel:hover .navClassLeft {
+    display: block;
+}
+
+.owlCarousel:hover .navClassRight {
     display: block;
 }
