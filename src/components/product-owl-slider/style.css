@@ -1,0 +1,52 @@
+.navClass {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: #EFEFEF;
+    outline: none !important;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.navClassLeft {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: #EFEFEF;
+    outline: none !important;
+    cursor: pointer;
+    transition: 0.5s;
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.navClassRight {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: #EFEFEF;
+    outline: none !important;
+    cursor: pointer;
+    transition: 0.5s;
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.navClassLeft:hover, .navClassRight:hover {
+    background: #78a206;
+    color: #FFF;
+}
+
+.owlCarousel:hover .navClassLeft {
+    display: block;
+}
+
+.owlCarousel:hover .navClassRight {
+    display: block;
+}

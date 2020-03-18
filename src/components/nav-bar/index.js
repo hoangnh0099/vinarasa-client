@@ -3,7 +3,7 @@
  * @format
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import NotFound from '../../pages/not-found';
@@ -13,9 +13,11 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
+  Button,
 } from 'reactstrap';
 import firebase from '../../services/firebaseConfig';
 import Home from '../../pages/home';
+import LoginModal from '../login-modal';
 
 const resource = {
   logo: require('../../assets/images/logo/logo.png'),
@@ -26,8 +28,12 @@ const resource = {
 
 const NavBar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
+
+  const toggleModal = () => setModal(!modal);
 
   const onSearch = () => {};
 
@@ -38,6 +44,43 @@ const NavBar = () => {
       console.error(e.message);
     }
   };
+
+  const userDropdown = () => {
+    return (
+      <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle tag="div" color="#FFF" className="">
+          <img loading="lazy" src={resource.user} className="icon" alt="" />
+        </DropdownToggle>
+
+        <DropdownMenu right>
+          <DropdownItem header>Header</DropdownItem>
+          <DropdownItem onClick={() => {}} tag="div">
+            Đổi mật khẩu
+          </DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem onClick={onSignOut}>Đăng xuất</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    );
+  };
+
+  const loginButton = () => {
+    return (
+      <Button outline color="success" onClick={toggleModal}>
+        Đăng nhập
+      </Button>
+    );
+  };
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+  }, []);
 
   return (
     <BrowserRouter>
@@ -90,18 +133,9 @@ const NavBar = () => {
             <h6 className="price">$65.00</h6>
           </div>
 
-          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle tag="div" color="#FFF" className="">
-              <img loading="lazy" src={resource.user} className="icon" alt="" />
-            </DropdownToggle>
+          <LoginModal modal={modal} toggleModal={toggleModal} />
 
-            <DropdownMenu right>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem>Some Action</DropdownItem>
-              <DropdownItem divider />
-              <DropdownItem onClick={onSignOut}>Đăng xuất</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+          {loggedIn ? userDropdown() : loginButton()}
         </div>
       </div>
 
