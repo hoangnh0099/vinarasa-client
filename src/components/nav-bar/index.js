@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import './style.css';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import NotFound from '../../pages/not-found';
 import { menuData } from './config';
 import {
@@ -15,6 +15,7 @@ import {
   DropdownToggle,
 } from 'reactstrap';
 import firebase from '../../services/firebaseConfig';
+import Home from '../../pages/home';
 
 const resource = {
   logo: require('../../assets/images/logo/logo.png'),
@@ -41,7 +42,9 @@ const NavBar = () => {
   return (
     <BrowserRouter>
       <div className="nav-bar">
-        <img src={resource.logo} alt="" className="brand-logo" />
+        <Link to="/">
+          <img src={resource.logo} loading="lazy" alt="" className="brand-logo" />
+        </Link>
 
         <nav>
           {menuData.map(menuItem => {
@@ -66,20 +69,20 @@ const NavBar = () => {
               className="form-input"
             />
             <button onClick={onSearch} className="btn">
-              <img src={resource.search} className="icon" />
+              <img loading="lazy" src={resource.search} className="icon" alt="" />
             </button>
           </form>
 
           <div className="cart">
             <button className="btn">
-              <img src={resource.cart} className="icon" />
+              <img loading="lazy" src={resource.cart} className="icon" alt="" />
             </button>
             <h6 className="price">$65.00</h6>
           </div>
 
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle tag="div" color="#FFF" className="dropdown">
-              <img src={resource.user} className="icon" />
+            <DropdownToggle tag="div" color="#FFF" className="">
+              <img loading="lazy" src={resource.user} className="icon" alt="" />
             </DropdownToggle>
 
             <DropdownMenu right>
@@ -93,7 +96,7 @@ const NavBar = () => {
       </div>
 
       <Switch>
-        <Route path="/" exact component={() => <h1>Home</h1>} />
+        <Route path="/" exact component={Home} />
         <Route exact component={NotFound} />
       </Switch>
     </BrowserRouter>

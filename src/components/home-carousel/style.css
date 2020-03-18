@@ -1,0 +1,17 @@
+:root {
+    --border: 1px solid black !important;
+}
+
+.carousel-custom {
+    width: 90% !important;
+    margin: 0 auto !important;
+    border: var(--border);
+}
+
+.banner {
+    width: 100%;
+    min-height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
