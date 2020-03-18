@@ -14,6 +14,7 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  Alert,
 } from 'reactstrap';
 import * as firebase from 'firebase';
 
@@ -34,7 +35,7 @@ const LoginModal = (props: Props) => {
     try {
       const result = await firebase
         .auth()
-        .signInWithEmailAndPassword(email, password);
+        .signInWithEmailAndPassword(email.trim(), password.trim());
       localStorage.setItem('userInfo', { user: result.user });
       toggleModal();
     } catch (e) {
@@ -49,10 +50,12 @@ const LoginModal = (props: Props) => {
   const onSignUp = async () => {
     try {
       if (password === rePassword) {
-        const result = await firebase
+        await firebase
           .auth()
-          .createUserWithEmailAndPassword(email, password);
+          .createUserWithEmailAndPassword(email.trim(), password.trim());
         toggleModal();
+      } else {
+        setError('Mật khẩu không khớp');
       }
     } catch (e) {
       setError(e.message);
@@ -63,7 +66,7 @@ const LoginModal = (props: Props) => {
     <Modal isOpen={modal}>
       <ModalHeader>Đăng nhập</ModalHeader>
       <ModalBody>
-        {!!error && error}
+        {!!error && <Alert color="danger">{error}</Alert>}
         <Form>
           <FormGroup>
             <Label for="exampleEmail">Email</Label>
@@ -97,6 +100,7 @@ const LoginModal = (props: Props) => {
                 placeholder="Nhập lại mật khẩu"
                 value={rePassword}
                 onChange={event => setRePassword(event.target.value)}
+                required
               />
             </FormGroup>
           )}
@@ -118,7 +122,14 @@ const LoginModal = (props: Props) => {
             Đăng ký
           </Button>
         )}
-        <Button color="link" onClick={toggleModal}>
+        <Button
+          color="link"
+          onClick={() => {
+            toggleModal();
+            setTimeout(() => {
+              setSignUp(false);
+            }, 100);
+          }}>
           Cancel
         </Button>
       </ModalFooter>
