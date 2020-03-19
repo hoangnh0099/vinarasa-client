@@ -37,6 +37,8 @@ const NavBar = props => {
 
   const onSearch = () => {};
 
+  const loggedIn = useContext(AuthContext);
+
   const onSignOut = async () => {
     try {
       return await firebase.auth().signOut();
@@ -53,7 +55,7 @@ const NavBar = props => {
         </DropdownToggle>
 
         <DropdownMenu right>
-          <DropdownItem header>Header</DropdownItem>
+          <DropdownItem header>Nguyễn Huy Hoàng</DropdownItem>
           <DropdownItem onClick={() => {}} tag="div">
             Đổi mật khẩu
           </DropdownItem>
@@ -71,10 +73,6 @@ const NavBar = props => {
       </Button>
     );
   };
-
-  const loggedIn = useContext(AuthContext);
-
-  console.log('loggedIn', loggedIn);
 
   return (
     <BrowserRouter>
@@ -124,7 +122,7 @@ const NavBar = props => {
             <button className="btn">
               <img loading="lazy" src={resource.cart} className="icon" alt="" />
             </button>
-            <h6 className="price">$65.00</h6>
+            {/*<h6 className="price">$65.00</h6>*/}
           </div>
 
           <LoginModal modal={modal} toggleModal={toggleModal} />
