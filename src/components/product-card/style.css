@@ -2,6 +2,27 @@
     --border: 1px solid black;
 }
 
+.ProductCard {
+    position: relative;
+}
+
+.overlay {
+    display: none;
+    background: #00000080;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ProductCard:hover .overlay {
+    display: block;
+    position: absolute;
+}
+
 .image {
     width: 100%;
     height: 300px;
@@ -19,4 +40,53 @@
 .product-name:hover {
     text-decoration: none;
     color: #000;
+}
+
+.icon {
+    width: 10px;
+}
+
+.icon-button {
+    background: #78a206;
+    color: #FFF;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    outline: none !important;
+}
+
+.icon-link {
+    background: #78a206;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 20px;
+    outline: none !important;
+    color: #FFF;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-link:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.button-area {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 65%;
+}
+
+.badge {
+    font-size: 15px !important;
+}
+
+.badge-area {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
 }

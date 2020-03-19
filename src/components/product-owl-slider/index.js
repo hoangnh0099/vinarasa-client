@@ -10,10 +10,12 @@ import './style.css';
 
 export type Props = {
   data: Array,
+  badgeTitle?: string,
+  salePercent?: number,
 };
 
 const ProductOwlSlider = (props: Props) => {
-  const { data } = props;
+  const { data, badgeTitle, salePercent } = props;
 
   return (
     <OwlCarousel
@@ -35,6 +37,8 @@ const ProductOwlSlider = (props: Props) => {
             image={product.image}
             name={product.name}
             price={product.price}
+            badgeTitle={badgeTitle}
+            salePercent={salePercent}
           />
         );
       })}
