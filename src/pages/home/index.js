@@ -11,9 +11,9 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { demoData } from './demoData';
 import ProductOwlSlider from '../../components/product-owl-slider';
 import { Toast, ToastHeader, ToastBody } from 'reactstrap';
+import Footer from '../../components/footer';
 
 const Home = () => {
-
   return (
     <div className="Home">
       <HomeCarousel />
@@ -39,6 +39,10 @@ const Home = () => {
         <hr />
         <ProductOwlSlider data={demoData} badgeTitle={'New'} />
       </div>
+
+      <hr />
+
+      <Footer />
     </div>
   );
 };

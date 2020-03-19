@@ -1,0 +1,23 @@
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+    margin: 50px auto;
+}
+
+.about {
+
+}
+
+.logo {
+    width: 75%;
+}
+
+.list {
+    border: none !important;
+    padding-top: 0 !important;
+}
+
+.list-footer {
+    margin-top: 50px;
+}
