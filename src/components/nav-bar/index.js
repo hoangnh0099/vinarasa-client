@@ -3,7 +3,7 @@
  * @format
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './style.css';
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import NotFound from '../../pages/not-found';
@@ -18,6 +18,7 @@ import {
 import firebase from '../../services/firebaseConfig';
 import Home from '../../pages/home';
 import LoginModal from '../login-modal';
+import { AuthContext } from '../../providers/auth-provider';
 
 const resource = {
   logo: require('../../assets/images/logo/logo.png'),
@@ -26,10 +27,9 @@ const resource = {
   user: require('../../assets/icons/user.png'),
 };
 
-const NavBar = () => {
+const NavBar = props => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [modal, setModal] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
 
@@ -72,15 +72,9 @@ const NavBar = () => {
     );
   };
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        setLoggedIn(true);
-      } else {
-        setLoggedIn(false);
-      }
-    });
-  }, []);
+  const loggedIn = useContext(AuthContext);
+
+  console.log('loggedIn', loggedIn);
 
   return (
     <BrowserRouter>

@@ -21,6 +21,7 @@
     left: 20px;
     transform: translateY(-50%);
     display: none;
+    font-size: 25px;
 }
 
 .navClassRight {
@@ -36,6 +37,7 @@
     right: 20px;
     transform: translateY(-50%);
     display: none;
+    font-size: 25px;
 }
 
 .navClassLeft:hover, .navClassRight:hover {
