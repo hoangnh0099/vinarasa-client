@@ -1,3 +1,60 @@
 .NotFound {
-background: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 25%;
+    transform: translateY(-75%);
+}
+
+.go-home {
+    color: white;
+    display: block;
+    outline: none;
+}
+
+.go-home:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.go-back-button {
+    background: #78a206 !important;
+    margin-top: 25px;
+}
+
+div {
+    text-align: center;
+}
+
+.error-code {
+    color: #78a206;
+    font-size: 200px;
+}
+
+.description {
+    font-weight: bold;
+    line-height: 0.8;
+    margin: 0 0 15px;
+    font-size: 24px;
+}
+
+.sub-description {
+    font-weight: bold;
+    line-height: 0.6;
+    font-size: 20px;
+    color: gray;
+}
+
+div h4 a {
+    background-color: #78a206;
+    border: 10px solid #78a206;
+    border-radius: 6px;
+    color: black;
+}
+
+div h4 a:hover {
+    text-decoration: none;
+    color: white;
 }

@@ -10,7 +10,6 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { demoData } from './demoData';
 import ProductOwlSlider from '../../components/product-owl-slider';
-import { Toast, ToastHeader, ToastBody } from 'reactstrap';
 import Footer from '../../components/footer';
 
 const Home = () => {

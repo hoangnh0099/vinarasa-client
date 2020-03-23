@@ -27,6 +27,7 @@ const ProductOwlSlider = (props: Props) => {
       dots
       lazyLoad
       lazyContent
+      autoplayTimeout={7500}
       margin={30}
       navContainerClass="navContainerClass"
       navClass={['navClassLeft', 'navClassRight']}>
