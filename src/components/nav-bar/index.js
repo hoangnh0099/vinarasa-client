@@ -19,6 +19,8 @@ import firebase from '../../services/firebaseConfig';
 import Home from '../../pages/home';
 import LoginModal from '../login-modal';
 import { AuthContext } from '../../providers/auth-provider';
+import ProductDetail from '../../pages/product-detail';
+import { CartContext } from '../../providers/cart-provider';
 
 const resource = {
   logo: require('../../assets/images/logo/logo.png'),
@@ -38,6 +40,7 @@ const NavBar = props => {
   const onSearch = () => {};
 
   const loggedIn = useContext(AuthContext);
+  const cartCount = useContext(CartContext).cart;
 
   const onSignOut = async () => {
     try {
@@ -120,9 +123,18 @@ const NavBar = props => {
 
           <div className="cart">
             <button className="btn">
-              <img loading="lazy" src={resource.cart} className="icon" alt="" />
+              <div className="cart-container">
+                <img
+                  loading="lazy"
+                  src={resource.cart}
+                  className="icon"
+                  alt=""
+                />
+                <div className="cart-count">
+                  {!!cartCount && cartCount.length}
+                </div>
+              </div>
             </button>
-            {/*<h6 className="price">$65.00</h6>*/}
           </div>
 
           <LoginModal modal={modal} toggleModal={toggleModal} />
@@ -133,7 +145,7 @@ const NavBar = props => {
 
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/products/:id" exact component={() => <h1>Hello</h1>} />
+        <Route path="/products/:id" exact component={ProductDetail} />
         <Route exact component={NotFound} />
       </Switch>
     </BrowserRouter>

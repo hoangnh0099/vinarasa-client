@@ -6,7 +6,8 @@
 import React, { useState } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import { Badge, Toast, ToastBody, ToastHeader } from 'reactstrap';
+import { Badge, Toast, ToastBody } from 'reactstrap';
+const uuid = require('uuid/v4');
 
 export type Props = {
   image: string,
@@ -14,10 +15,6 @@ export type Props = {
   name: string,
   badgeTitle?: string,
   salePercent?: string,
-};
-
-const resource = {
-  cart: require('../../assets/icons/shopping-cart-white.png'),
 };
 
 const ProductCard = (props: Props) => {
@@ -40,7 +37,7 @@ const ProductCard = (props: Props) => {
         )}
       </div>
       <div className="product-info">
-        <Link to={`/products/${name}`} className="product-name">
+        <Link to={`/products/${uuid()}`} className="product-name">
           {name}
         </Link>
         <p>{price}</p>
@@ -58,7 +55,7 @@ const ProductCard = (props: Props) => {
             }}>
             <i className="fas fa-cart-plus" />
           </button>
-          <Link to={`/products/${name}`} className="icon-link">
+          <Link to={`/products/${uuid()}`} className="icon-link">
             <i className="fas fa-eye" />
           </Link>
         </div>
