@@ -8,17 +8,9 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import { Badge, Toast, ToastBody } from 'reactstrap';
 import { CartContext } from '../../providers/cart-provider';
-const uuid = require('uuid/v4');
+import { v4 as uuidv4 } from 'uuid';
 
-export type Props = {
-  image: string,
-  price: string,
-  name: string,
-  badgeTitle?: string,
-  salePercent?: string,
-};
-
-const ProductCard = (props: Props) => {
+const ProductCard = props  => {
   const [isOpenToast, setOpenToast] = useState(false);
   const { price, name, image, badgeTitle, salePercent } = props;
 
@@ -40,7 +32,7 @@ const ProductCard = (props: Props) => {
         )}
       </div>
       <div className="product-info">
-        <Link to={`/products/${uuid()}`} className="product-name">
+        <Link to={`/products/${uuidv4()}`} className="product-name">
           {name}
         </Link>
         <p>{price}</p>
@@ -64,7 +56,7 @@ const ProductCard = (props: Props) => {
             }}>
             <i className="fas fa-cart-plus" />
           </button>
-          <Link to={`/products/${uuid()}`} className="icon-link">
+          <Link to={`/products/${uuidv4()}`} className="icon-link">
             <i className="fas fa-eye" />
           </Link>
         </div>

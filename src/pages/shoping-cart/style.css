@@ -1,5 +1,4 @@
 .ShopingCart {
-    width: 90%;
     margin: 0 auto;
 }
 
@@ -9,10 +8,22 @@
 }
 
 .cart-table {
-    margin-top: 50px;
-    margin-bottom: 100px;
+    width: 90%;
+    margin: 50px auto 100px;
 }
 
 .cast-button {
 
+}
+
+.total-price {
+    text-align: right;
+    margin-right: 5%;
+    line-height: 40px;
+}
+
+.breadcrumb-custom {
+    padding-left: 5% !important;
+    color: #78a206 !important;
+    text-decoration: none !important;
 }

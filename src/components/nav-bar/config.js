@@ -2,21 +2,21 @@
  * @format
  */
 
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 const menuData = [
   {
-    id: uuid(),
+    id: uuidv4(),
     title: 'Home',
     path: '/',
   },
   {
-    id: uuid(),
+    id: uuidv4(),
     title: 'Shop',
     path: '/shop',
   },
   {
-    id: uuid(),
+    id: uuidv4(),
     title: 'About us',
     path: '/about-us',
   },

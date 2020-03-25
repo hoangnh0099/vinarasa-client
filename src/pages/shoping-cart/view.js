@@ -4,7 +4,7 @@
 
 import React from 'react';
 import './style.css';
-import { Table } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Table } from 'reactstrap';
 import numeral from 'numeral';
 import Footer from '../../components/footer';
 
@@ -48,23 +48,35 @@ const ShopingCartPresenter = props => {
                 </tr>
               );
             })}
+            <tr>
+              <td colSpan={6}>
+                <h5 className="total-price">Tổng số tiền: {totalPrice}</h5>
+              </td>
+              <td>
+                <button
+                  className="btn btn-success"
+                  onClick={calculateTotalPrice}>
+                  Thanh toán
+                </button>
+              </td>
+            </tr>
           </tbody>
         </Table>
-
-        <div>
-          <h3>Tổng số tiền: {totalPrice}</h3>
-          <button
-            className="btn btn-success cast-button"
-            onClick={calculateTotalPrice}>
-            Thanh toán
-          </button>
-        </div>
       </div>
     );
   };
 
   return (
     <div className="ShopingCart">
+      <div>
+        <Breadcrumb>
+          <BreadcrumbItem className="breadcrumb-custom">
+            Trang chủ
+          </BreadcrumbItem>
+          <BreadcrumbItem active>Giỏ hàng</BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+
       {cart.length ? (
         renderTable()
       ) : (
