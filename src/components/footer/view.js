@@ -14,7 +14,7 @@ const FooterView = () => {
   return (
     <footer className="footer">
       <div className="about">
-        <img src={resource.logo} alt="" className="logo" />
+        <img src={resource.logo} loading="lazy" alt="" className="logo" />
         <p>
           <br />
           Address: 123 Lĩnh Nam, Hoàng Mai, Hà Nội

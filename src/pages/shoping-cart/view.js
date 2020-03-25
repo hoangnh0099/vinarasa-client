@@ -32,7 +32,7 @@ const ShopingCartPresenter = props => {
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>
-                    <img src={'https://picsum.photos/75/75?random=1'} alt="" />
+                    <img loading="lazy" src={'https://picsum.photos/75/75?random=1'} alt="" />
                   </td>
                   <td>{item.name}</td>
                   <td>{numeral(item.price).format('0,0')}</td>

@@ -1,5 +1,4 @@
 /**
- * @flow
  * @format
  */
 
@@ -18,12 +17,7 @@ import {
 } from 'reactstrap';
 import * as firebase from 'firebase';
 
-export type Props = {
-  modal: boolean,
-  toggleModal: Function,
-};
-
-const LoginModal = (props: Props) => {
+const LoginModal = props => {
   const { modal, toggleModal } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +30,10 @@ const LoginModal = (props: Props) => {
       const result = await firebase
         .auth()
         .signInWithEmailAndPassword(email.trim(), password.trim());
-      localStorage.setItem('userInfo', { user: result.user });
+      localStorage.setItem(
+        'userInfo',
+        JSON.stringify({ user: JSON.stringify(result.user) }),
+      );
       toggleModal();
     } catch (e) {
       setError(e.message);
@@ -73,7 +70,7 @@ const LoginModal = (props: Props) => {
             <Input
               type="email"
               name="email"
-              id="exampleEmail"
+              id="email"
               placeholder="Nhập email"
               value={email}
               onChange={event => setEmail(event.target.value)}
@@ -84,7 +81,7 @@ const LoginModal = (props: Props) => {
             <Input
               type="password"
               name="password"
-              id="exampleEmail"
+              id="password"
               placeholder="Nhập mật khẩu"
               value={password}
               onChange={event => setPassword(event.target.value)}

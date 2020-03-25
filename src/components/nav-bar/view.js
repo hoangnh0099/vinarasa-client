@@ -11,6 +11,7 @@ import Home from '../../pages/home';
 import ProductDetail from '../../pages/product-detail';
 import ShopingCart from '../../pages/shoping-cart';
 import Toolbar from './toolbar';
+import Shop from '../../pages/shop';
 
 const resource = {
   logo: require('../../assets/images/logo/logo.png'),
@@ -54,6 +55,7 @@ const NavBarView = props => {
         <Route path="/" exact component={Home} />
         <Route path="/products/:id" exact component={ProductDetail} />
         <Route path="/shoping-cart" exact component={ShopingCart} />
+        <Route path="/shop" exact component={Shop} />
         <Route exact component={NotFound} />
       </Switch>
     </BrowserRouter>

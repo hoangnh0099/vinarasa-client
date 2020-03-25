@@ -17,7 +17,7 @@ const ProductCard = props  => {
 
   return (
     <div className="ProductCard">
-      <img src={image} className="image" alt={name} />
+      <img loading="lazy" src={image} className="image" alt={name} />
       <div className="badge-area">
         {badgeTitle && (
           <Badge color="success" className="badge">

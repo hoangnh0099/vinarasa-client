@@ -59,7 +59,7 @@ const ProductDetailView = props => {
 
       <div className="content">
         <div className="product-image">
-          <img src={activeImage} alt="" className="main-image" />
+          <img loading="lazy" src={activeImage} alt="" className="main-image" />
 
           <div className="other-image">
             {imageData.map((item, index) => {
