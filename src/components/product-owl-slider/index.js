@@ -8,13 +8,7 @@ import ProductCard from '../product-card';
 import OwlCarousel from 'react-owl-carousel';
 import './style.css';
 
-export type Props = {
-  data: Array,
-  badgeTitle?: string,
-  salePercent?: number,
-};
-
-const ProductOwlSlider = (props: Props) => {
+const ProductOwlSlider = props => {
   const { data, badgeTitle, salePercent } = props;
 
   return (
@@ -23,7 +17,7 @@ const ProductOwlSlider = (props: Props) => {
       items={5}
       autoplay
       loop
-      nav4
+      nav
       dots
       lazyLoad
       lazyContent

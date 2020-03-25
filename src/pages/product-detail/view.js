@@ -3,7 +3,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import {
   Breadcrumb,
@@ -17,6 +17,8 @@ import {
   Row,
   TabContent,
   TabPane,
+  Toast,
+  ToastBody,
 } from 'reactstrap';
 import numeral from 'numeral';
 import Footer from '../../components/footer';
@@ -31,6 +33,8 @@ const ProductDetailView = props => {
     activeTab,
     addToCart,
   } = props;
+
+  const [openToast, setOpenToast] = useState(false);
 
   const renderCount = () => {
     let option = [];
@@ -61,7 +65,7 @@ const ProductDetailView = props => {
             {imageData.map((item, index) => {
               return (
                 <button key={index} onClick={() => onChangeImage(item)}>
-                  <img src={item} alt="" className="sub-image" />
+                  <img src={item} alt="" className="sub-image" loading="lazy" />
                 </button>
               );
             })}
@@ -82,11 +86,17 @@ const ProductDetailView = props => {
 
           <button
             className="btn btn-success add-to-cart"
-            onClick={() =>
-              addToCart({ name: 'hello', price: 1000, quantity: 10 })
-            }>
+            onClick={() => {
+              addToCart({ name: 'hello', price: 1000, quantity: 10 });
+              setOpenToast(true);
+              setTimeout(() => setOpenToast(false), 2000);
+            }}>
             Thêm vào giỏ hàng
           </button>
+
+          <Toast isOpen={openToast} className="toast-custom">
+            <ToastBody>Thêm vào giỏ hàng thành công</ToastBody>
+          </Toast>
         </div>
       </div>
 

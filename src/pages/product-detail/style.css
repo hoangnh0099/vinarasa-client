@@ -70,3 +70,7 @@
 .quantity-bar {
     width: 162px !important;
 }
+
+.toast-custom {
+    margin-top: 30px;
+}

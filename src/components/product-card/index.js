@@ -3,10 +3,11 @@
  * @format
  */
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 import { Badge, Toast, ToastBody } from 'reactstrap';
+import { CartContext } from '../../providers/cart-provider';
 const uuid = require('uuid/v4');
 
 export type Props = {
@@ -20,6 +21,8 @@ export type Props = {
 const ProductCard = (props: Props) => {
   const [isOpenToast, setOpenToast] = useState(false);
   const { price, name, image, badgeTitle, salePercent } = props;
+
+  const cart = useContext(CartContext);
 
   return (
     <div className="ProductCard">
@@ -48,6 +51,12 @@ const ProductCard = (props: Props) => {
           <button
             className="icon-button"
             onClick={() => {
+              cart.onAddToCart({
+                name: 'hello',
+                price: 1000,
+                quantity: 10,
+                total: 10000,
+              });
               setOpenToast(true);
               setTimeout(() => {
                 setOpenToast(false);
