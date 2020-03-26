@@ -22,13 +22,13 @@ const CartProvider = props => {
     setCart(_cart);
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem('cart', JSON.stringify(cart));
-  //   firebase
-  //     .database()
-  //     .ref(`/${uid}/cart`)
-  //     .set(cart);
-  // }, [cart]);
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    firebase
+      .database()
+      .ref(`/${uid}/cart`)
+      .set(cart);
+  }, [cart]);
 
   return (
     <CartContext.Provider value={{ cart, onAddToCart, onDeleteProduct }}>
