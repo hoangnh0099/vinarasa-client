@@ -3,3 +3,19 @@
     color: #78a206 !important;
     text-decoration: none !important;
 }
+
+.shop-view-container {
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.side-bar {
+    flex: 1;
+    border: 1px solid black;
+}
+
+.shop-products {
+    flex: 4;
+    border: 1px solid black;
+}
